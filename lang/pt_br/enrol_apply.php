@@ -57,3 +57,4 @@ $string['editdescription'] = 'Descrição';
 $string['applymanage'] = 'Manage enrolment applications'; // Needs to be translated.
 
 $string['status_desc'] = 'Allow course access of internally enrolled users.'; // Needs to be translated.
+$string['gestorimediato'] = 'Gestor imediato';

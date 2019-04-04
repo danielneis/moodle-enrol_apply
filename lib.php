@@ -464,6 +464,35 @@ class enrol_apply_plugin extends enrol_plugin {
                 message_send($message);
             }
         }
+
+        // Send notification to direct manager of user defined by customfield emailchefe.
+        $value = $instance->customtext3;
+        if ($value === '$@GESTOR@$') {
+            if ($fieldid = $DB->get_field('user_info_field', 'id', ['shortname' => 'emailchefe'])) {
+                if ($email = $DB->get_field('user_info_data', 'data', ['userid' => $userid, 'fieldid' => $fieldid])) {
+                    if ($user = $DB->get_record('user', ['email' => $email])) {
+                        $manageurl = new moodle_url('/enrol/apply/manage.php');
+                        $content = $renderer->application_notification_mail_body(
+                            $course,
+                            $applicant,
+                            $manageurl,
+                            $data->applydescription,
+                            $standarduserfields,
+                            $extrauserfields);
+
+                        $message = new enrol_apply_notification(
+                            $user,
+                            $applicant,
+                            'application',
+                            get_string('mailtoteacher_suject', 'enrol_apply'),
+                            $content,
+                            $manageurl,
+                            $instance->courseid);
+                        message_send($message);
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -475,6 +504,7 @@ class enrol_apply_plugin extends enrol_plugin {
      */
     public function get_notifycoursebased_users($instance) {
         $value = $instance->customtext3;
+
         if (empty($value) or $value === '$@NONE@$') {
             return array();
         }
