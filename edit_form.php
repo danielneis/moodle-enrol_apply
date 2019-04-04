@@ -82,7 +82,7 @@ class enrol_apply_edit_form extends moodleform {
 
         $choices = array(
             '$@NONE@$' => get_string('nobody'),
-            '$@ALL@$' => get_string('everyonewhocan', 'admin', get_capability_string('enrol/apply:manageapplications')));
+            '$@ALL@$' => get_string('everyonewhocan', 'admin', get_capability_string('enrol/apply:manageapplications')),
             '$@GESTOR@$' => get_string('gestorimediato', 'admin'));
         $users = get_users_by_capability($context, 'enrol/apply:manageapplications');
         foreach ($users as $userid => $user) {
