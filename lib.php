@@ -389,7 +389,7 @@ class enrol_apply_plugin extends enrol_plugin {
     }
 
     private function send_application_notification($instance, $userid, $data) {
-        global $CFG, $PAGE;
+        global $CFG, $PAGE, $DB;
         require_once($CFG->dirroot.'/enrol/apply/notification.php');
         // Required for course_get_url() function.
         require_once($CFG->dirroot.'/course/lib.php');
@@ -479,7 +479,6 @@ class enrol_apply_plugin extends enrol_plugin {
                             $data->applydescription,
                             $standarduserfields,
                             $extrauserfields);
-
                         $message = new enrol_apply_notification(
                             $user,
                             $applicant,
