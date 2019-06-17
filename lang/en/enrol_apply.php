@@ -123,3 +123,22 @@ $string['expiredaction_help'] = 'Select action to carry out when user enrolment 
 
 $string['submitted_info'] = 'Enrol info';
 $string['gestorimediato'] = 'Gestor imediato';
+
+$string['emailgestorsubject'] = 'Você foi indicado como gestor imediato';
+$string['emailgestor'] = 'Olá {$a->nomechefe}!
+
+Você foi indicado como gestor imediato de {$a->nomeusuario} no cadastro na plataforma de EAD da ABR Telecom. Você receberá notificações por e-mail para aprovar inscrições em cursos. Para acessar a plataforma, use os dados abaixo:
+
+https://ead.abrtelecom.com.br
+
+Seu usuário: {$a->usernamechefe}
+
+Senha: {$a->passwordchefe}
+
+Você deve trocar a sua senha no primeiro acesso.
+
+Se você não for o gestor imediato de {nome do usuário} entre em contato com ead@abrtelecom.com.br.
+
+Seja bem-vindo!
+
+Equipe ABR Telecom';

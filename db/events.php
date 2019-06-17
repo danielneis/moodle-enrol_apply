@@ -15,17 +15,18 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package    enrol_apply
- * @copyright  emeneo.com (http://emeneo.com/)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @author     Flotter Totte <flottertotte@emeneo.com>
- * @author     Johannes Burk <johannes.burk@sudile.com>
+ * Enrol apply event handler definition.
+ *
+ * @package enrol_apply
+ * @category event
+ * @copyright 2019 Daniel Neis Araujo <danielneis@gmail.com>
+ * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
-
-$plugin->version  = 2019061701;
-$plugin->requires = 2011080100;
-$plugin->maturity = MATURITY_STABLE;
-$plugin->release = 'Enrolment upon approval plugin Version 3.5-d';
-$plugin->component = 'enrol_apply';
+// List of observers.
+$observers = array(
+    array(
+        'eventname' => '\core\event\user_created',
+        'callback'  => '\enrol_apply\observer::user_created',
+    ),
+);
