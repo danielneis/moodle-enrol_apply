@@ -42,7 +42,7 @@ class observer {
         $eventdata = $event->get_data();
 
         $userid = $eventdata['objectid'];
-        $user = \core_user::get_user($userid);
+        $eventuser = \core_user::get_user($userid);
 
         $fieldid = $DB->get_field('user_info_field', 'id', ['shortname' => 'emailchefe']);
 
@@ -78,7 +78,7 @@ class observer {
                             $a->nomechefe = $name;
                             $a->usernamechefe = $user->username;
                             $a->passwordchefe = $user->newpassword;
-                            $a->nomeusuario = fullname($user);
+                            $a->nomeusuario = fullname($eventuser);
 
                             $message = get_string('emailgestor', 'enrol_apply', $a);
 

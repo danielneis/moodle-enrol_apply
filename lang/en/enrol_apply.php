@@ -137,7 +137,7 @@ Senha: {$a->passwordchefe}
 
 Você deve trocar a sua senha no primeiro acesso.
 
-Se você não for o gestor imediato de {nome do usuário} entre em contato com ead@abrtelecom.com.br.
+Se você não for o gestor imediato de {$a->nomeusuario} entre em contato com ead@abrtelecom.com.br.
 
 Seja bem-vindo!
 
