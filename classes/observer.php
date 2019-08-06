@@ -61,7 +61,8 @@ class observer {
                             $user->email = $email;
                             $user->lastname = array_pop($explodedname);
                             $user->firstname = implode(' ', $explodedname);
-                            $user->newpassword = generate_password();
+                            $password = generate_password();
+                            $user->password = $password;
 
                             $user = signup_setup_new_user($user);
                             $user->confirmed = 1;
@@ -77,7 +78,7 @@ class observer {
                             $a = new \stdclass();
                             $a->nomechefe = $name;
                             $a->usernamechefe = $user->username;
-                            $a->passwordchefe = $user->newpassword;
+                            $a->passwordchefe = $password;
                             $a->nomeusuario = fullname($eventuser);
 
                             $message = get_string('emailgestor', 'enrol_apply', $a);
